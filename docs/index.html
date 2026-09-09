@@ -3,20 +3,400 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>QS Webinar Studio Cards</title>
+<title>QS Webinar Studio · Default Funnel</title>
 <style>
-  body { margin:0; padding:32px; background:#0f0f0f; color:#e8e8e8; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif; }
-  a { color:#6ee7b7; }
-  h1 { color:#fff; font-size:22px; }
-  .meta { color:#888; font-size:14px; }
-  ul { line-height:1.8; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 28px;
+    background: #0f0f0f; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    max-width: 960px; width: 100%; margin: 0 auto;
+  }
+  .eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h1 { margin: 0 0 6px; font-size: 26px; font-weight: 650; color: #fff; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 16px; }
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+    position: sticky; top: 0; z-index: 5; padding: 10px 0 12px; background: #0f0f0f;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .tab {
+    background: #141414; border: 1px solid #2a2a2a; color: #ccc;
+    border-radius: 999px; padding: 8px 14px; cursor: pointer; font-size: 13px; font-weight: 600;
+  }
+  .tab span { display: block; font-size: 11px; color: #888; font-weight: 500; margin-top: 2px; }
+  .tab.active { background: #1f2937; border-color: #6ee7b7; color: #fff; }
+  .tab.active span { color: #6ee7b7; }
+  .panel.hidden { display: none; }
+  .card {
+    background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #6ee7b7; margin-bottom: 10px; font-weight: 600;
+  }
+  .summary { font-size: 15px; line-height: 1.55; color: #e8e8e8; }
+  .summary strong { color: #fff; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+  .kpi { background: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 14px 12px; }
+  .kpi .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi .val { font-size: 22px; font-weight: 700; margin-top: 6px; color: #fff; }
+  .kpi .sub { font-size: 12px; color: #888; margin-top: 4px; }
+  .kpi.warn { border-color: #fbbf2466; } .kpi.warn .val { color: #fbbf24; }
+  .kpi.bad { border-color: #f8717166; } .kpi.bad .val { color: #f87171; }
+  .kpi.good { border-color: #4ade8066; } .kpi.good .val { color: #4ade80; }
+  .kpi.red { border-color: #f8717166; } .kpi.red .val { color: #f87171; }
+  .kpi.yellow { border-color: #fbbf2466; } .kpi.yellow .val { color: #fbbf24; }
+  .kpi.green { border-color: #4ade8066; } .kpi.green .val { color: #4ade80; }
+  .kpi.accent .val { color: #6ee7b7; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; color: #888; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 8px; border-bottom: 1px solid #2a2a2a; }
+  td { padding: 11px 8px; border-bottom: 1px solid #222; color: #e8e8e8; }
+  tr:last-child td { border-bottom: none; }
+  tr.current td { background: #1f2937aa; }
+  tr.current td:first-child { border-left: 3px solid #6ee7b7; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 650; }
+  .badge.red { background: #f8717122; color: #f87171; }
+  .badge.yellow { background: #fbbf2422; color: #fbbf24; }
+  .badge.green { background: #4ade8022; color: #4ade80; }
+  ol.impl { margin: 0; padding-left: 18px; }
+  ol.impl li { margin: 0 0 10px; line-height: 1.5; color: #ddd; }
+  ol.impl li strong { color: #fff; }
+  .foot { color: #666; font-size: 11px; margin-top: 8px; }
+  @media (max-width: 720px) {
+    body { padding: 16px; }
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    table { font-size: 12px; display: block; overflow-x: auto; }
+  }
 </style>
 </head>
 <body>
-  <h1>QS Webinar Studio Cards</h1>
-  <p class="meta">Dated funnel + lead-quality cards. Prefer the direct card URL from chat.</p>
-  <ul>
-    <li><a href="cards/w156-2026-09-08.html">W156 · Tue Sep 8, 2026 · Default Funnel (refreshed Wed Sep 9)</a></li>
-  </ul>
+  <div class="eyebrow">Webinar Studio · Default Funnel · permanent</div>
+  <h1>Weekly funnel cards</h1>
+  <div class="meta">Live webinar-studio · as-of Wed Sep 9 ~12:50pm ET · GHL W156 deep sync OK · ledger invites (not ×5) · newest tab opens first · each Tuesday adds a tab</div>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="w156" type="button">W156<span>Sep 8</span></button><button class="tab" data-tab="w155" type="button">W155<span>Sep 1</span></button><button class="tab" data-tab="w154" type="button">W154<span>Aug 25</span></button><button class="tab" data-tab="w153" type="button">W153<span>Aug 18</span></button><button class="tab" data-tab="w152" type="button">W152<span>Aug 11</span></button>
+  </nav>
+
+  
+    <section class="panel" id="w156" data-panel="w156">
+      <div class="card">
+        <div class="card-title">Summary</div>
+        <div class="summary">Show still soft at <strong>9.7%</strong> (third week under 12%). Invites <strong>246,099</strong>, regs <strong>2,455</strong>, live <strong>239</strong>, booked people <strong>14</strong> (Book B 14). Room stickiness held (~71% T10).</div>
+      </div>
+      <div class="kpis">
+        <div class="kpi accent"><div class="label">Invites</div><div class="val">246,099</div><div class="sub">ledger · not ×5</div></div>
+        <div class="kpi accent"><div class="label">Regs</div><div class="val">2,455</div><div class="sub">reg 1.0%</div></div>
+        <div class="kpi red"><div class="label">Show rate</div><div class="val">9.7%</div><div class="sub">239 live · floor 12%</div></div>
+        <div class="kpi accent"><div class="label">Booked (people)</div><div class="val">14</div><div class="sub">Book B 14 · won 0</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel table · last 4 weeks (ending W156)</div>
+        <table>
+          <thead><tr>
+            <th>Webinar</th><th>Date</th>
+            <th class="num">Invites</th><th class="num">Regs</th><th class="num">Live</th><th class="num">T10</th>
+            <th class="num">Book</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+          </tr></thead>
+          <tbody>
+        <tr>
+          <td>W153</td><td>Aug 18</td>
+          <td class="num">257,936</td><td class="num">2,453</td>
+          <td class="num">348</td><td class="num">250</td>
+          <td class="num">27</td><td class="num">1</td>
+          <td class="num"><span class="badge green">14.2%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr>
+          <td>W154</td><td>Aug 25</td>
+          <td class="num">262,607</td><td class="num">2,722</td>
+          <td class="num">315</td><td class="num">240</td>
+          <td class="num">20</td><td class="num">1</td>
+          <td class="num"><span class="badge yellow">11.6%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr>
+          <td>W155</td><td>Sep 1</td>
+          <td class="num">205,830</td><td class="num">2,169</td>
+          <td class="num">229</td><td class="num">170</td>
+          <td class="num">20</td><td class="num">0</td>
+          <td class="num"><span class="badge red">10.6%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W156</strong></td><td>Sep 8</td>
+          <td class="num"><strong>246,099</strong></td><td class="num"><strong>2,455</strong></td>
+          <td class="num"><strong>239</strong></td><td class="num"><strong>170</strong></td>
+          <td class="num"><strong>14</strong></td><td class="num"><strong>0</strong></td>
+          <td class="num"><span class="badge red">9.7%</span></td>
+          <td class="num"><strong>1.0%</strong></td>
+        </tr></tbody>
+        </table>
+        <div class="foot">Book = distinct contacts on booked_call_webinar_series. Dual Book B shown in KPI sub when A≠B. Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Implications</div>
+        <ol class="impl"><li><strong>Show rate is still the live fire.</strong> Three weeks under 12% (14.2% → 11.6% → 10.6% → 9.7%).</li><li><strong>Invite + reg volume look healthy.</strong> 246k invites and 2,455 regs (1.0% reg) match the recent band — leak is show, not list size.</li><li><strong>Room quality still holds.</strong> About 71% of live watched 10+ minutes. Fix show path first.</li><li><strong>Books are real but light.</strong> 14 people vs 20 / 20 / 27 on W155–W153 — tracks with weaker show more than invite failure.</li></ol>
+      </div>
+    </section>
+    <section class="panel hidden" id="w155" data-panel="w155">
+      <div class="card">
+        <div class="card-title">Summary</div>
+        <div class="summary">Show stayed under floor at <strong>10.6%</strong>. Books <strong>20</strong> people (Book B 23). Invites dipped to <strong>205,830</strong>; regs <strong>2,169</strong>, live <strong>229</strong>.</div>
+      </div>
+      <div class="kpis">
+        <div class="kpi accent"><div class="label">Invites</div><div class="val">205,830</div><div class="sub">ledger · not ×5</div></div>
+        <div class="kpi accent"><div class="label">Regs</div><div class="val">2,169</div><div class="sub">reg 1.1%</div></div>
+        <div class="kpi red"><div class="label">Show rate</div><div class="val">10.6%</div><div class="sub">229 live · floor 12%</div></div>
+        <div class="kpi accent"><div class="label">Booked (people)</div><div class="val">20</div><div class="sub">Book B 23 · won 0</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel table · last 4 weeks (ending W155)</div>
+        <table>
+          <thead><tr>
+            <th>Webinar</th><th>Date</th>
+            <th class="num">Invites</th><th class="num">Regs</th><th class="num">Live</th><th class="num">T10</th>
+            <th class="num">Book</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+          </tr></thead>
+          <tbody>
+        <tr>
+          <td>W152</td><td>Aug 11</td>
+          <td class="num">252,580</td><td class="num">2,745</td>
+          <td class="num">422</td><td class="num">310</td>
+          <td class="num">47</td><td class="num">1</td>
+          <td class="num"><span class="badge green">15.4%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr>
+          <td>W153</td><td>Aug 18</td>
+          <td class="num">257,936</td><td class="num">2,453</td>
+          <td class="num">348</td><td class="num">250</td>
+          <td class="num">27</td><td class="num">1</td>
+          <td class="num"><span class="badge green">14.2%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr>
+          <td>W154</td><td>Aug 25</td>
+          <td class="num">262,607</td><td class="num">2,722</td>
+          <td class="num">315</td><td class="num">240</td>
+          <td class="num">20</td><td class="num">1</td>
+          <td class="num"><span class="badge yellow">11.6%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W155</strong></td><td>Sep 1</td>
+          <td class="num"><strong>205,830</strong></td><td class="num"><strong>2,169</strong></td>
+          <td class="num"><strong>229</strong></td><td class="num"><strong>170</strong></td>
+          <td class="num"><strong>20</strong></td><td class="num"><strong>0</strong></td>
+          <td class="num"><span class="badge red">10.6%</span></td>
+          <td class="num"><strong>1.1%</strong></td>
+        </tr></tbody>
+        </table>
+        <div class="foot">Book = distinct contacts on booked_call_webinar_series. Dual Book B shown in KPI sub when A≠B. Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Implications</div>
+        <ol class="impl"><li><strong>Show under floor again.</strong> 10.6% with only 229 live — booking ceiling compresses.</li><li><strong>Invite dip week.</strong> 205k invites was the softest in this set; still ~1.1% reg.</li></ol>
+      </div>
+    </section>
+    <section class="panel hidden" id="w154" data-panel="w154">
+      <div class="card">
+        <div class="card-title">Summary</div>
+        <div class="summary">Show slipped to <strong>11.6%</strong> (yellow band). Books <strong>20</strong> people (Book B 25). Invites <strong>262,607</strong>, regs <strong>2,722</strong>, live <strong>315</strong>.</div>
+      </div>
+      <div class="kpis">
+        <div class="kpi accent"><div class="label">Invites</div><div class="val">262,607</div><div class="sub">ledger · not ×5</div></div>
+        <div class="kpi accent"><div class="label">Regs</div><div class="val">2,722</div><div class="sub">reg 1.0%</div></div>
+        <div class="kpi yellow"><div class="label">Show rate</div><div class="val">11.6%</div><div class="sub">315 live · floor 12%</div></div>
+        <div class="kpi accent"><div class="label">Booked (people)</div><div class="val">20</div><div class="sub">Book B 25 · won 1</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel table · last 4 weeks (ending W154)</div>
+        <table>
+          <thead><tr>
+            <th>Webinar</th><th>Date</th>
+            <th class="num">Invites</th><th class="num">Regs</th><th class="num">Live</th><th class="num">T10</th>
+            <th class="num">Book</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+          </tr></thead>
+          <tbody>
+        <tr>
+          <td>W152</td><td>Aug 11</td>
+          <td class="num">252,580</td><td class="num">2,745</td>
+          <td class="num">422</td><td class="num">310</td>
+          <td class="num">47</td><td class="num">1</td>
+          <td class="num"><span class="badge green">15.4%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr>
+          <td>W153</td><td>Aug 18</td>
+          <td class="num">257,936</td><td class="num">2,453</td>
+          <td class="num">348</td><td class="num">250</td>
+          <td class="num">27</td><td class="num">1</td>
+          <td class="num"><span class="badge green">14.2%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W154</strong></td><td>Aug 25</td>
+          <td class="num"><strong>262,607</strong></td><td class="num"><strong>2,722</strong></td>
+          <td class="num"><strong>315</strong></td><td class="num"><strong>240</strong></td>
+          <td class="num"><strong>20</strong></td><td class="num"><strong>1</strong></td>
+          <td class="num"><span class="badge yellow">11.6%</span></td>
+          <td class="num"><strong>1.0%</strong></td>
+        </tr></tbody>
+        </table>
+        <div class="foot">Book = distinct contacts on booked_call_webinar_series. Dual Book B shown in KPI sub when A≠B. Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Implications</div>
+        <ol class="impl"><li><strong>Show entered the yellow band.</strong> 11.6% is the first clear slip under a strong August.</li><li><strong>Books kept easing.</strong> 20 people booked vs 27 prior week — pressure continues down the funnel.</li></ol>
+      </div>
+    </section>
+    <section class="panel hidden" id="w153" data-panel="w153">
+      <div class="card">
+        <div class="card-title">Summary</div>
+        <div class="summary">Show held above floor at <strong>14.2%</strong>, but books stepped down to <strong>27</strong> people (Book B 32). Invites <strong>257,936</strong>, regs <strong>2,453</strong>, live <strong>348</strong>.</div>
+      </div>
+      <div class="kpis">
+        <div class="kpi accent"><div class="label">Invites</div><div class="val">257,936</div><div class="sub">ledger · not ×5</div></div>
+        <div class="kpi accent"><div class="label">Regs</div><div class="val">2,453</div><div class="sub">reg 1.0%</div></div>
+        <div class="kpi green"><div class="label">Show rate</div><div class="val">14.2%</div><div class="sub">348 live · floor 12%</div></div>
+        <div class="kpi accent"><div class="label">Booked (people)</div><div class="val">27</div><div class="sub">Book B 32 · won 1</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel table · last 4 weeks (ending W153)</div>
+        <table>
+          <thead><tr>
+            <th>Webinar</th><th>Date</th>
+            <th class="num">Invites</th><th class="num">Regs</th><th class="num">Live</th><th class="num">T10</th>
+            <th class="num">Book</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+          </tr></thead>
+          <tbody>
+        <tr>
+          <td>W152</td><td>Aug 11</td>
+          <td class="num">252,580</td><td class="num">2,745</td>
+          <td class="num">422</td><td class="num">310</td>
+          <td class="num">47</td><td class="num">1</td>
+          <td class="num"><span class="badge green">15.4%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W153</strong></td><td>Aug 18</td>
+          <td class="num"><strong>257,936</strong></td><td class="num"><strong>2,453</strong></td>
+          <td class="num"><strong>348</strong></td><td class="num"><strong>250</strong></td>
+          <td class="num"><strong>27</strong></td><td class="num"><strong>1</strong></td>
+          <td class="num"><span class="badge green">14.2%</span></td>
+          <td class="num"><strong>1.0%</strong></td>
+        </tr></tbody>
+        </table>
+        <div class="foot">Book = distinct contacts on booked_call_webinar_series. Dual Book B shown in KPI sub when A≠B. Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Implications</div>
+        <ol class="impl"><li><strong>Show still above floor.</strong> 14.2% show, but books fell hard vs W152 — quality or follow-up mix may have shifted.</li><li><strong>Invite volume stayed huge.</strong> List size was not the constraint.</li></ol>
+      </div>
+    </section>
+    <section class="panel hidden" id="w152" data-panel="w152">
+      <div class="card">
+        <div class="card-title">Summary</div>
+        <div class="summary">Stronger week on show and books. Show rate <strong>15.4%</strong> with <strong>422</strong> live on <strong>2,745</strong> regs, and <strong>47</strong> people booked (Book B 52). Invite ledger <strong>252,580</strong>.</div>
+      </div>
+      <div class="kpis">
+        <div class="kpi accent"><div class="label">Invites</div><div class="val">252,580</div><div class="sub">ledger · not ×5</div></div>
+        <div class="kpi accent"><div class="label">Regs</div><div class="val">2,745</div><div class="sub">reg 1.1%</div></div>
+        <div class="kpi green"><div class="label">Show rate</div><div class="val">15.4%</div><div class="sub">422 live · floor 12%</div></div>
+        <div class="kpi accent"><div class="label">Booked (people)</div><div class="val">47</div><div class="sub">Book B 52 · won 1</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel table · last 4 weeks (ending W152)</div>
+        <table>
+          <thead><tr>
+            <th>Webinar</th><th>Date</th>
+            <th class="num">Invites</th><th class="num">Regs</th><th class="num">Live</th><th class="num">T10</th>
+            <th class="num">Book</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+          </tr></thead>
+          <tbody>
+        <tr class="current">
+          <td><strong>W152</strong></td><td>Aug 11</td>
+          <td class="num"><strong>252,580</strong></td><td class="num"><strong>2,745</strong></td>
+          <td class="num"><strong>422</strong></td><td class="num"><strong>310</strong></td>
+          <td class="num"><strong>47</strong></td><td class="num"><strong>1</strong></td>
+          <td class="num"><span class="badge green">15.4%</span></td>
+          <td class="num"><strong>1.1%</strong></td>
+        </tr></tbody>
+        </table>
+        <div class="foot">Book = distinct contacts on booked_call_webinar_series. Dual Book B shown in KPI sub when A≠B. Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Implications</div>
+        <ol class="impl"><li><strong>Show was healthy.</strong> 14%+ show with 47 books is the recent high-water mark — use as the comparison baseline.</li><li><strong>Books tracked with live bodies.</strong> Keep watching show first; book volume followed live more than invite size.</li></ol>
+      </div>
+    </section>
+
+  <div class="card">
+    <div class="card-title">All weeks · click a row to jump</div>
+    <table>
+      <thead><tr>
+        <th>Webinar</th><th>Date</th>
+        <th class="num">Invites</th><th class="num">Regs</th><th class="num">Live</th><th class="num">T10</th>
+        <th class="num">Book</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+      </tr></thead>
+      <tbody>
+        <tr data-jump="w152" style="cursor:pointer">
+      <td>W152</td><td>Aug 11</td>
+      <td class="num">252,580</td><td class="num">2,745</td>
+      <td class="num">422</td><td class="num">310</td>
+      <td class="num">47</td><td class="num">1</td>
+      <td class="num"><span class="badge green">15.4%</span></td>
+      <td class="num">1.1%</td>
+    </tr><tr data-jump="w153" style="cursor:pointer">
+      <td>W153</td><td>Aug 18</td>
+      <td class="num">257,936</td><td class="num">2,453</td>
+      <td class="num">348</td><td class="num">250</td>
+      <td class="num">27</td><td class="num">1</td>
+      <td class="num"><span class="badge green">14.2%</span></td>
+      <td class="num">1.0%</td>
+    </tr><tr data-jump="w154" style="cursor:pointer">
+      <td>W154</td><td>Aug 25</td>
+      <td class="num">262,607</td><td class="num">2,722</td>
+      <td class="num">315</td><td class="num">240</td>
+      <td class="num">20</td><td class="num">1</td>
+      <td class="num"><span class="badge yellow">11.6%</span></td>
+      <td class="num">1.0%</td>
+    </tr><tr data-jump="w155" style="cursor:pointer">
+      <td>W155</td><td>Sep 1</td>
+      <td class="num">205,830</td><td class="num">2,169</td>
+      <td class="num">229</td><td class="num">170</td>
+      <td class="num">20</td><td class="num">0</td>
+      <td class="num"><span class="badge red">10.6%</span></td>
+      <td class="num">1.1%</td>
+    </tr><tr class="current" data-jump="w156" style="cursor:pointer">
+      <td>W156</td><td>Sep 8</td>
+      <td class="num">246,099</td><td class="num">2,455</td>
+      <td class="num">239</td><td class="num">170</td>
+      <td class="num">14</td><td class="num">0</td>
+      <td class="num"><span class="badge red">9.7%</span></td>
+      <td class="num">1.0%</td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
+
+<script>
+function activate(id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === id));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('hidden', p.dataset.panel !== id));
+  history.replaceState(null, '', '#' + id);
+}
+document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.tab)));
+document.querySelectorAll('[data-jump]').forEach(row => row.addEventListener('click', () => {
+  activate(row.dataset.jump);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}));
+const hash = (location.hash || '#w156').slice(1);
+if (document.getElementById(hash)) activate(hash); else activate('w156');
+</script>
 </body>
 </html>
