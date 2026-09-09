@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 28px;
+    background: #0f0f0f; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    max-width: 920px; width: 100%; margin: 0 auto;
+  }
+  .wrap { max-width: 880px; }
+  .eyebrow {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #888; margin-bottom: 8px;
+  }
+  h1 {
+    margin: 0 0 6px; font-size: 26px; font-weight: 650; color: #fff;
+  }
+  .meta { color: #888; font-size: 13px; margin-bottom: 18px; }
+  .card {
+    background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #6ee7b7; margin-bottom: 10px; font-weight: 600;
+  }
+  .summary { font-size: 15px; line-height: 1.55; color: #e8e8e8; }
+  .summary strong { color: #fff; }
+  .kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+    margin-bottom: 16px;
+  }
+  .kpi {
+    background: #141414; border: 1px solid #2a2a2a; border-radius: 12px;
+    padding: 14px 12px;
+  }
+  .kpi .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi .val { font-size: 22px; font-weight: 700; margin-top: 6px; color: #fff; }
+  .kpi .sub { font-size: 12px; color: #888; margin-top: 4px; }
+  .kpi.warn { border-color: #fbbf2466; }
+  .kpi.warn .val { color: #fbbf24; }
+  .kpi.bad { border-color: #f8717166; }
+  .kpi.bad .val { color: #f87171; }
+  .kpi.good { border-color: #4ade8066; }
+  .kpi.good .val { color: #4ade80; }
+  .kpi.accent .val { color: #6ee7b7; }
+  table {
+    width: 100%; border-collapse: collapse; font-size: 13px;
+  }
+  th {
+    text-align: left; color: #888; font-weight: 600; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 10px 8px; border-bottom: 1px solid #2a2a2a;
+  }
+  td {
+    padding: 11px 8px; border-bottom: 1px solid #222; color: #e8e8e8;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr.current td { background: #1f2937aa; }
+  tr.current td:first-child { border-left: 3px solid #6ee7b7; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge {
+    display: inline-block; padding: 2px 8px; border-radius: 999px;
+    font-size: 11px; font-weight: 650;
+  }
+  .badge.red { background: #f8717122; color: #f87171; }
+  .badge.yellow { background: #fbbf2422; color: #fbbf24; }
+  .badge.green { background: #4ade8022; color: #4ade80; }
+  ol.impl { margin: 0; padding-left: 18px; }
+  ol.impl li { margin: 0 0 10px; line-height: 1.5; color: #ddd; }
+  ol.impl li strong { color: #fff; }
+  .foot { color: #666; font-size: 11px; margin-top: 8px; }
+
+  @media (max-width: 720px) {
+    body { padding: 16px; }
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    table { font-size: 12px; display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Webinar Studio · Default Funnel</div>
+  <h1>W156 · Tuesday Sep 8</h1>
+  <div class="meta">Live webinar-studio · as-of Sep 8 ~4:30pm ET · GHL sync lag (opps ~7:12am; contact incremental last night) · WG sync OK ~1:14pm · ledger invites (not ×5)</div>
+
+  <div class="card">
+    <div class="card-title">Summary</div>
+    <div class="summary">
+      Show rate fell again to <strong>9.7%</strong> (third week under the 12% floor, and worse than last week’s 10.6%). Regs actually rose to <strong>2,455</strong>, with <strong>239</strong> live and <strong>71%</strong> of them past 10 minutes — so room stickiness is fine. The invite ledger for W156 is still <strong>0</strong> (not synced yet), and booked people are still <strong>0</strong> a few hours after the webinar (Book B rows also 0; contact sync may still be catching up). Won is <strong>0</strong>.
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi warn">
+      <div class="label">Invites</div>
+      <div class="val">0</div>
+      <div class="sub">ledger empty · prior ~206–263k</div>
+    </div>
+    <div class="kpi accent">
+      <div class="label">Regs</div>
+      <div class="val">2,455</div>
+      <div class="sub">vs 2,169 last week</div>
+    </div>
+    <div class="kpi bad">
+      <div class="label">Show rate</div>
+      <div class="val">9.7%</div>
+      <div class="sub">239 live · floor 12%</div>
+    </div>
+    <div class="kpi warn">
+      <div class="label">Booked (people)</div>
+      <div class="val">0</div>
+      <div class="sub">Book B rows 0 · won 0</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Funnel table · last 4 weeks</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Webinar</th>
+          <th>Date</th>
+          <th class="num">Invites</th>
+          <th class="num">Regs</th>
+          <th class="num">Live</th>
+          <th class="num">T10</th>
+          <th class="num">Book</th>
+          <th class="num">Won</th>
+          <th class="num">Show %</th>
+          <th class="num">Reg %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W153</td><td>Aug 18</td>
+          <td class="num">257,936</td><td class="num">2,453</td><td class="num">348</td><td class="num">250</td>
+          <td class="num">27</td><td class="num">0</td>
+          <td class="num"><span class="badge green">14.2%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr>
+          <td>W154</td><td>Aug 25</td>
+          <td class="num">262,607</td><td class="num">2,722</td><td class="num">315</td><td class="num">240</td>
+          <td class="num">20</td><td class="num">1</td>
+          <td class="num"><span class="badge yellow">11.6%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr>
+          <td>W155</td><td>Sep 1</td>
+          <td class="num">205,830</td><td class="num">2,169</td><td class="num">229</td><td class="num">170</td>
+          <td class="num">18</td><td class="num">0</td>
+          <td class="num"><span class="badge red">10.6%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W156</strong></td><td>Sep 8</td>
+          <td class="num"><strong>0</strong></td><td class="num"><strong>2,455</strong></td>
+          <td class="num"><strong>239</strong></td><td class="num"><strong>170</strong></td>
+          <td class="num"><strong>0</strong></td><td class="num"><strong>0</strong></td>
+          <td class="num"><span class="badge red">9.7%</span></td>
+          <td class="num">—</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="foot">Book = distinct contacts on booked_call_webinar_series (people). Show dual Book B when A≠B. Show badges: green ≥12%, yellow 11–12%, red &lt;11%. W156 invite ledger empty; Reg % omitted.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Implications</div>
+    <ol class="impl">
+      <li><strong>Show rate is still the live fire.</strong> Three weeks under 12% (14.2% → 11.6% → 10.6% → 9.7%) means fewer live bodies even when regs hold or rise — booking pressure will keep sliding until show recovers.</li>
+      <li><strong>Regs are not the leak this week.</strong> W156 registered <strong>2,455</strong> (up from 2,169), so the problem is turning regs into live seats, not filling the list.</li>
+      <li><strong>Room quality still holds.</strong> About <strong>71%</strong> of live watched 10+ minutes. Once they’re in, they stay. Fix the show path, not the webinar content first.</li>
+      <li><strong>Invite ledger and books are incomplete right now.</strong> Calendar invites for W156 are still 0 in Studio, and booked people are 0 with contact sync last incremental overnight — do not read “0 books” as final until GHL contact sync catches today’s series.</li>
+      <li><strong>Treat W156 books as a watch, not a verdict.</strong> Re-check Book A (people) vs Book B (opp rows) after the next contact sync before changing invite or show tactics off today’s zero.</li>
+    </ol>
+  </div>
+</div>
+</body>
+</html>
