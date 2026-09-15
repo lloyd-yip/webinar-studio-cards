@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 36px 40px 48px;
+    background: #0f0f0f; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    width: 900px;
+  }
+  .wrap { max-width: 860px; }
+  .eyebrow {
+    font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #9ca3af; margin-bottom: 10px; font-weight: 600;
+  }
+  h1 { margin: 0 0 8px; font-size: 34px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+  .meta { color: #9ca3af; font-size: 16px; margin-bottom: 24px; line-height: 1.4; }
+  .card {
+    background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px;
+    padding: 22px 24px; margin-bottom: 18px;
+  }
+  .card-title {
+    font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #6ee7b7; margin-bottom: 14px; font-weight: 700;
+  }
+  .summary { font-size: 18px; line-height: 1.6; color: #e5e7eb; }
+  .summary strong { color: #fff; font-weight: 700; }
+  .kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-bottom: 18px;
+  }
+  .kpi {
+    background: #141414; border: 1px solid #2a2a2a; border-radius: 14px;
+    padding: 18px 16px;
+  }
+  .kpi .label { font-size: 13px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .kpi .val { font-size: 36px; font-weight: 750; margin-top: 8px; color: #fff; line-height: 1.1; }
+  .kpi .sub { font-size: 14px; color: #9ca3af; margin-top: 8px; line-height: 1.35; }
+  .kpi.warn { border-color: #fbbf2466; }
+  .kpi.warn .val { color: #fbbf24; }
+  .kpi.bad { border-color: #f8717166; }
+  .kpi.bad .val { color: #f87171; }
+  .kpi.good { border-color: #4ade8066; }
+  .kpi.good .val { color: #4ade80; }
+  .kpi.accent .val { color: #6ee7b7; }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  th {
+    text-align: left; color: #9ca3af; font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 12px 10px; border-bottom: 1px solid #333;
+  }
+  td { padding: 14px 10px; border-bottom: 1px solid #262626; color: #e5e7eb; }
+  tr:last-child td { border-bottom: none; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .badge {
+    display: inline-block; padding: 4px 10px; border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+  }
+  .badge.red { background: #f8717122; color: #f87171; }
+  .badge.yellow { background: #fbbf2422; color: #fbbf24; }
+  .badge.green { background: #4ade8022; color: #4ade80; }
+  .mix { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .mix .cell {
+    background: #141414; border: 1px solid #2a2a2a; border-radius: 12px;
+    padding: 16px 10px; text-align: center;
+  }
+  .mix .cell .n { font-size: 28px; font-weight: 750; color: #fff; }
+  .mix .cell .l { font-size: 13px; color: #9ca3af; margin-top: 6px; font-weight: 600; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  ol.impl { margin: 0; padding-left: 22px; }
+  ol.impl li { margin: 0 0 14px; line-height: 1.55; color: #e5e7eb; font-size: 16px; }
+  ol.impl li strong { color: #fff; }
+  .foot { color: #6b7280; font-size: 13px; margin-top: 14px; line-height: 1.45; }
+  ul.plain { margin: 0; padding-left: 20px; color: #e5e7eb; font-size: 16px; line-height: 1.65; }
+  ul.plain strong { color: #fff; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Webinar Studio · Monthly lead quality</div>
+  <h1>August 2026 · W151–W154</h1>
+  <div class="meta">Live webinar-studio · as-of Sep 15 ~11:40am ET · GHL sync lag (opportunities failed Sep 15 ~7am ET; last good incremental Sep 14 8pm ET) · Default Funnel exact</div>
+
+  <div class="card">
+    <div class="card-title">Summary</div>
+    <div class="summary">
+      August’s four Default Funnel webinars booked <strong>136 people</strong>. Of those, <strong>83</strong> showed to Call 1, and <strong>58</strong> scored as qualified (Great / Ok / Barely Passable) — about <strong>87%</strong> of the 67 showed calls that already have a Lead Quality score. <strong>5</strong> deals have won so far (about <strong>4%</strong> of booked people). <strong>W153</strong> is still the soft spot on volume and show rate, though its qualify-of-showed improved from the early September read. <strong>16</strong> Call 1 showed rows still have blank Lead Quality, so the qualify picture can still move a little.
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi accent">
+      <div class="label">Booked (people)</div>
+      <div class="val">136</div>
+      <div class="sub">Book A · W153/154 A≠B by 1</div>
+    </div>
+    <div class="kpi good">
+      <div class="label">Call 1 showed</div>
+      <div class="val">83</div>
+      <div class="sub">61% of booked</div>
+    </div>
+    <div class="kpi good">
+      <div class="label">Qualified</div>
+      <div class="val">58</div>
+      <div class="sub">70% of showed · 87% of scored · 16 LQ null</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Won</div>
+      <div class="val">5</div>
+      <div class="sub">4% of booked</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Per webinar · book → showed → qualified → won</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Webinar</th>
+          <th>Date</th>
+          <th class="num">Book</th>
+          <th class="num">Showed</th>
+          <th class="num">Qualified</th>
+          <th class="num">Won</th>
+          <th class="num">Show/Book</th>
+          <th class="num">Qual/Show</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W151</td><td>Aug 4</td>
+          <td class="num">42</td><td class="num">24</td><td class="num">19</td><td class="num">2</td>
+          <td class="num"><span class="badge green">57%</span></td>
+          <td class="num"><span class="badge green">79%</span></td>
+        </tr>
+        <tr>
+          <td>W152</td><td>Aug 11</td>
+          <td class="num">47</td><td class="num">30</td><td class="num">23</td><td class="num">1</td>
+          <td class="num"><span class="badge green">64%</span></td>
+          <td class="num"><span class="badge green">77%</span></td>
+        </tr>
+        <tr>
+          <td>W153</td><td>Aug 18</td>
+          <td class="num">27</td><td class="num">13</td><td class="num">7</td><td class="num">1</td>
+          <td class="num"><span class="badge yellow">48%</span></td>
+          <td class="num"><span class="badge yellow">54%</span></td>
+        </tr>
+        <tr>
+          <td>W154</td><td>Aug 25</td>
+          <td class="num">20</td><td class="num">16</td><td class="num">9</td><td class="num">1</td>
+          <td class="num"><span class="badge green">80%</span></td>
+          <td class="num"><span class="badge green">56%</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="foot">Book = distinct contacts on booked_call_webinar_series (Book A). Showed = Call 1 status Showed OR showed-stage union. Qualified = Call 1 Lead Quality in Great / Ok / Barely Passable. Company size / clean titles not available as Studio segment fields.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Lead quality mix · among 83 Call 1 showed</div>
+    <div class="mix">
+      <div class="cell"><div class="n">5</div><div class="l">Great</div></div>
+      <div class="cell"><div class="n">43</div><div class="l">Ok</div></div>
+      <div class="cell"><div class="n">10</div><div class="l">Barely</div></div>
+      <div class="cell"><div class="n">9</div><div class="l">Bad / DQ</div></div>
+      <div class="cell"><div class="n">16</div><div class="l">(null)</div></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Where qualified came from</div>
+      <ul class="plain">
+        <li><strong>Reg campaign:</strong> email 40 · blank 14 · meetup 4</li>
+        <li><strong>Book campaign:</strong> webinar 49 · website 5 · ai_bot 2 · email 1 · blank 1</li>
+        <li><strong>Geo (WG join):</strong> US 23 · blank 13 · UK 6 · Canada 4 · Germany 3 · Italy 3 · France 3 · Spain/Czechia/Iceland 1 each</li>
+      </ul>
+      <div class="foot">Geo via webinargeek viewing/country matched on email + broadcast. Blanks = no WG join. Company size / clean titles not in Studio for this cut.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Decision implications</div>
+      <ol class="impl">
+        <li><strong>Keep pouring into email → webinar book.</strong> That path produced most of August’s qualified leads (40 email regs; 49 webinar books). <strong>solid</strong></li>
+        <li><strong>W153 still needs a postmortem.</strong> Bookings held at 27, but show rate fell to 48% and qualify-of-showed is the weakest of the month at 54%. <strong>solid</strong></li>
+        <li><strong>Most “good” is Ok, not Great.</strong> 43 Ok vs only 5 Great means premium quality is thin even when qualify volume looks healthy. <strong>solid</strong></li>
+        <li><strong>Protect show rate on smaller webinars.</strong> W154 booked only 20 people but showed 80% — when volume is thin, show discipline matters more than invite volume. <strong>solid</strong></li>
+        <li><strong>Meetup is real but tiny.</strong> All 4 meetup regs that showed scored qualified — interesting, but n is too small to reallocate budget. <strong>thin n / estimate</strong></li>
+        <li><strong>Do not steer on company size or clean titles yet.</strong> Those Studio segment fields are still empty for this cut, so size/title mix conclusions would be invented. <strong>thin n / estimate</strong></li>
+      </ol>
+    </div>
+  </div>
+</div>
+</body>
+</html>
