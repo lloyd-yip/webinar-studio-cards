@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 28px;
+    background: #0f0f0f; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    max-width: 920px; width: 100%; margin: 0 auto;
+  }
+  .wrap { max-width: 880px; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h1 { margin: 0 0 6px; font-size: 26px; font-weight: 650; color: #fff; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 18px; }
+  .card { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px; padding: 18px 20px; margin-bottom: 16px; }
+  .card-title { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6ee7b7; margin-bottom: 10px; font-weight: 600; }
+  .summary { font-size: 15px; line-height: 1.55; color: #e8e8e8; }
+  .summary strong { color: #fff; }
+  .kpis { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 16px; }
+  .kpi { background: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 14px 12px; }
+  .kpi .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi .val { font-size: 22px; font-weight: 700; margin-top: 6px; color: #fff; }
+  .kpi .sub { font-size: 12px; color: #888; margin-top: 4px; }
+  .kpi.warn { border-color: #fbbf2466; } .kpi.warn .val { color: #fbbf24; }
+  .kpi.bad { border-color: #f8717166; } .kpi.bad .val { color: #f87171; }
+  .kpi.good { border-color: #4ade8066; } .kpi.good .val { color: #4ade80; }
+  .kpi.accent .val { color: #6ee7b7; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; color: #888; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 8px; border-bottom: 1px solid #2a2a2a; }
+  td { padding: 11px 8px; border-bottom: 1px solid #222; color: #e8e8e8; }
+  tr:last-child td { border-bottom: none; }
+  tr.current td { background: #1f2937aa; }
+  tr.current td:first-child { border-left: 3px solid #6ee7b7; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 650; }
+  .badge.red { background: #f8717122; color: #f87171; }
+  .badge.yellow { background: #fbbf2422; color: #fbbf24; }
+  .badge.green { background: #4ade8022; color: #4ade80; }
+  ol.impl { margin: 0; padding-left: 18px; }
+  ol.impl li { margin: 0 0 10px; line-height: 1.5; color: #ddd; }
+  ol.impl li strong { color: #fff; }
+  .foot { color: #666; font-size: 11px; margin-top: 8px; }
+  @media (max-width: 720px) {
+    body { padding: 16px; }
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    table { font-size: 12px; display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Webinar Studio · Default Funnel</div>
+  <h1>W157 · Tuesday Sep 15</h1>
+  <div class="meta">Live webinar-studio · as-of Tue Sep 15 ~4:40pm ET · GHL WG sync OK ~1:06pm ET · webinar:157 deep sync not run · invite ledger empty (lag) · ledger invites (not ×5)</div>
+
+  <div class="card">
+    <div class="card-title">Summary</div>
+    <div class="summary">Show <strong>8.0%</strong> on <strong>2,208</strong> overall regs from WebinarGeek (Studio net-new / nonjoiner split not generated yet). Live <strong>177</strong>, T10 <strong>128</strong> (~72% of live). Invite ledger is still <strong>0</strong> and booked people are still <strong>0</strong> — no calendar upload and no <strong>webinar:157 deep sync</strong> yet, so treat invites/books as lag and republish after deep sync.</div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi accent">
+      <div class="label">Invites</div>
+      <div class="val">0*</div>
+      <div class="sub">ledger lag · deep sync pending</div>
+    </div>
+    <div class="kpi accent">
+      <div class="label">Net-new regs</div>
+      <div class="val">—</div>
+      <div class="sub">pending scorecard · 2,208 overall</div>
+    </div>
+    <div class="kpi accent">
+      <div class="label">Nonjoiner regs</div>
+      <div class="val">—</div>
+      <div class="sub">pending scorecard</div>
+    </div>
+    <div class="kpi bad">
+      <div class="label">Show rate</div>
+      <div class="val">8.0%</div>
+      <div class="sub">177 live · floor 12%</div>
+    </div>
+    <div class="kpi accent">
+      <div class="label">Booked (people)</div>
+      <div class="val">0</div>
+      <div class="sub">lag likely · won 0</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Funnel table · last 4 weeks</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Webinar</th><th>Date</th>
+          <th class="num">Invites</th><th class="num">Regs</th>
+          <th class="num">Net-new</th><th class="num">Nonjoiners</th>
+          <th class="num">Live</th><th class="num">T10</th>
+          <th class="num">Book</th><th class="num">Won</th>
+          <th class="num">Show %</th><th class="num">Reg %</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W154</td><td>Aug 25</td>
+          <td class="num">262,607</td>
+          <td class="num">2,722</td>
+          <td class="num">1,631</td>
+          <td class="num">1,091</td>
+          <td class="num">315</td><td class="num">240</td>
+          <td class="num">20</td><td class="num">1</td>
+          <td class="num"><span class="badge yellow">11.6%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr>
+          <td>W155</td><td>Sep 1</td>
+          <td class="num">205,830</td>
+          <td class="num">2,169</td>
+          <td class="num">1,146</td>
+          <td class="num">1,023</td>
+          <td class="num">229</td><td class="num">170</td>
+          <td class="num">20</td><td class="num">1</td>
+          <td class="num"><span class="badge red">10.6%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr>
+          <td>W156</td><td>Sep 8</td>
+          <td class="num">246,099</td>
+          <td class="num">2,455</td>
+          <td class="num">1,483</td>
+          <td class="num">972</td>
+          <td class="num">239</td><td class="num">170</td>
+          <td class="num">15</td><td class="num">0</td>
+          <td class="num"><span class="badge red">9.7%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W157</strong></td><td>Sep 15</td>
+          <td class="num"><strong>0*</strong></td>
+          <td class="num"><strong>2,208</strong></td>
+          <td class="num"><strong>—</strong></td>
+          <td class="num"><strong>—</strong></td>
+          <td class="num"><strong>177</strong></td><td class="num"><strong>128</strong></td>
+          <td class="num"><strong>0</strong></td><td class="num"><strong>0</strong></td>
+          <td class="num"><span class="badge red">8.0%</span></td>
+          <td class="num"><strong>—</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="foot">*W157 invites/books are ledger/deep-sync lag (not final). Net-new/NJ pending Studio scorecard. Book = distinct contacts on booked_call_webinar_series. Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Implications</div>
+    <ol class="impl">
+      <li><strong>Show is the live fire again.</strong> 8.0% show is the softest week in this run and the fourth straight under the 12% floor — booking pressure stays compressed until show recovers.</li><li><strong>WG attendance is real.</strong> 2,208 regs and 177 live are synced (wg:6807195 ~1:06pm ET). Volume is a bit lighter than W156’s 2,455 / 239, but the bigger leak is still show rate, not empty rooms.</li><li><strong>Room quality still holds.</strong> About 72% of live watched 10+ minutes (128 / 177). Fix the show path first, not the webinar content.</li><li><strong>Ledger + books are lagging.</strong> Invite ledger COUNT is 0 and Book A/B are 0 because calendar upload and webinar:157 deep sync have not run. Republish after deep sync — do not treat these zeros as final.</li><li><strong>Scorecard split pending.</strong> Nonjoiner vs net-new needs Studio webinar_report. Until then KPIs show overall regs only for the split chips.</li>
+    </ol>
+  </div>
+</div>
+</body>
+</html>
