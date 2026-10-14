@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>QS Webinar Studio · Default Funnel</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 28px;
+    background: #0f0f0f; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    max-width: 1100px; width: 100%; margin: 0 auto;
+  }
+  .eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h1 { margin: 0 0 6px; font-size: 26px; font-weight: 650; color: #fff; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 16px; }
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+    position: sticky; top: 0; z-index: 5; padding: 10px 0 12px; background: #0f0f0f;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .tab {
+    background: #141414; border: 1px solid #2a2a2a; color: #ccc;
+    border-radius: 999px; padding: 8px 14px; cursor: pointer; font-size: 13px; font-weight: 600;
+  }
+  .tab span { display: block; font-size: 11px; color: #888; font-weight: 500; margin-top: 2px; }
+  .tab.active { background: #1f2937; border-color: #6ee7b7; color: #fff; }
+  .tab.active span { color: #6ee7b7; }
+  .panel.hidden { display: none; }
+  .card {
+    background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #6ee7b7; margin-bottom: 10px; font-weight: 600;
+  }
+  .summary { font-size: 15px; line-height: 1.55; color: #e8e8e8; }
+  .summary strong { color: #fff; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+  .kpis-5 { grid-template-columns: repeat(5, 1fr); }
+  .kpi { background: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 14px 12px; }
+  .kpi .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi .val { font-size: 22px; font-weight: 700; margin-top: 6px; color: #fff; }
+  .kpi .sub { font-size: 12px; color: #888; margin-top: 4px; }
+  .kpi.warn { border-color: #fbbf2466; } .kpi.warn .val { color: #fbbf24; }
+  .kpi.bad, .kpi.red { border-color: #f8717166; } .kpi.bad .val, .kpi.red .val { color: #f87171; }
+  .kpi.good, .kpi.green { border-color: #4ade8066; } .kpi.good .val, .kpi.green .val { color: #4ade80; }
+  .kpi.yellow { border-color: #fbbf2466; } .kpi.yellow .val { color: #fbbf24; }
+  .kpi.accent .val { color: #6ee7b7; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th { text-align: left; color: #888; font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 6px; border-bottom: 1px solid #2a2a2a; }
+  td { padding: 10px 6px; border-bottom: 1px solid #222; color: #e8e8e8; }
+  tr:last-child td { border-bottom: none; }
+  tr.current td { background: #1f2937aa; }
+  tr.current td:first-child { border-left: 3px solid #6ee7b7; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 650; }
+  .badge.red { background: #f8717122; color: #f87171; }
+  .badge.yellow { background: #fbbf2422; color: #fbbf24; }
+  .badge.green { background: #4ade8022; color: #4ade80; }
+  ol.impl { margin: 0; padding-left: 18px; }
+  ol.impl li { margin: 0 0 10px; line-height: 1.5; color: #ddd; }
+  ol.impl li strong { color: #fff; }
+  .foot { color: #666; font-size: 11px; margin-top: 8px; }
+  @media (max-width: 900px) {
+    .kpis-5 { grid-template-columns: repeat(2, 1fr); }
+    table { display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+  <div class="eyebrow">Webinar Studio · Default Funnel</div>
+  <h1>W161 · Tuesday Oct 13, 2026</h1>
+  <div class="meta">Live webinar-studio · as-of Wed Oct 14 ~9:30am ET · GHL sync OK · deep sync webinar:161:deep done Wed Oct 14 3:26am ET · W161 published on Wed catch-up (Tue data not ready) · regs split from Studio scorecard (nonjoiners vs net-new) · ledger invites · Live/T10 exclude flagged notetakers on Zoom weeks · newest tab first · W158–W161 variant_label=Default</div>
+  <section class="panel" id="w161">
+      <div class="card">
+        <div class="card-title">Summary</div>
+        <div class="summary">W161 went back to WebinarGeek, and show rose a little to <strong>7.6%</strong>, with <strong>174</strong> people live out of <strong>2,277</strong> overall regs. That is still deep in the red band and far below the 12% floor. The regs split into <strong>1,006</strong> net-new and <strong>1,271</strong> nonjoiners, and invites were the highest in this set at <strong>264,745</strong>. The good news is books: <strong>13</strong> people have booked so far, which is almost twice as many as the Zoom week before it.</div>
+      </div>
+      <div class="kpis kpis-5">
+        <div class="kpi accent"><div class="label">Invites</div><div class="val">264,745</div><div class="sub">ledger · not ×5</div></div>
+        <div class="kpi accent"><div class="label">Net-new regs</div><div class="val">1,006</div><div class="sub">incl. no-list · 2,277 overall</div></div>
+        <div class="kpi warn"><div class="label">Nonjoiner regs</div><div class="val">1,271</div><div class="sub">56% of regs</div></div>
+        <div class="kpi red"><div class="label">Show rate</div><div class="val">7.6%</div><div class="sub">174 live · floor 12%</div></div>
+        <div class="kpi accent"><div class="label">Booked (people)</div><div class="val">13</div><div class="sub">Book B 15 · won 0</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel table · last 4 weeks (ending W161)</div>
+        <table>
+          <thead><tr>
+            <th>Webinar</th><th>Date</th>
+            <th class="num">Invites</th><th class="num">Regs</th>
+            <th class="num">Net-new</th><th class="num">Nonjoiners</th>
+            <th class="num">Live</th><th class="num">T10</th>
+            <th class="num">Book</th><th class="num">Book %</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+          </tr></thead>
+          <tbody>
+        <tr>
+          <td>W158</td><td>Sep 22</td>
+          <td class="num">246,368</td>
+          <td class="num">2,535</td>
+          <td class="num">1,708</td>
+          <td class="num">827</td>
+          <td class="num">409</td><td class="num">321</td>
+          <td class="num">29</td><td class="num">9.0%</td><td class="num">0</td>
+          <td class="num"><span class="badge green">16.1%</span></td>
+          <td class="num">1.0%</td>
+        </tr>
+        <tr>
+          <td>W159</td><td>Sep 29</td>
+          <td class="num">244,325</td>
+          <td class="num">2,741</td>
+          <td class="num">1,164</td>
+          <td class="num">1,577</td>
+          <td class="num">269</td><td class="num">196</td>
+          <td class="num">12</td><td class="num">6.1%</td><td class="num">0</td>
+          <td class="num"><span class="badge red">9.8%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr>
+          <td>W160</td><td>Oct 6</td>
+          <td class="num">251,399</td>
+          <td class="num">2,640</td>
+          <td class="num">1,178</td>
+          <td class="num">1,462</td>
+          <td class="num">168</td><td class="num">135</td>
+          <td class="num">7</td><td class="num">5.2%</td><td class="num">0</td>
+          <td class="num"><span class="badge red">6.4%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W161</strong></td><td>Oct 13</td>
+          <td class="num"><strong>264,745</strong></td>
+          <td class="num"><strong>2,277</strong></td>
+          <td class="num"><strong>1,006</strong></td>
+          <td class="num"><strong>1,271</strong></td>
+          <td class="num"><strong>174</strong></td><td class="num"><strong>120</strong></td>
+          <td class="num"><strong>13</strong></td><td class="num">10.8%</td><td class="num"><strong>0</strong></td>
+          <td class="num"><span class="badge red">7.6%</span></td>
+          <td class="num"><strong>0.9%</strong></td>
+        </tr></tbody>
+        </table>
+        <div class="foot">Regs split from Studio webinar_report scorecard: Nonjoiners = prior no-shows re-invited; Net-new = everything else (assigned lists + no-list data). Book = distinct contacts on booked_call_webinar_series. Book % = Book ÷ T10 (people who stayed 10+ min). Live and T10 exclude flagged AI notetakers on Zoom weeks (W158 22, W159 23, W160 17). Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Implications</div>
+        <ol class="impl"><li><strong>Show is still the emergency.</strong> Show was 7.6% this week, after 9.8% in W159 and 6.4% in W160, so this is the third red week in a row. Studio puts the net-new show rate at about 8.2%, which is far below the 14.5% net-new show rate in W159. Keep the reminder and join-flow fixes moving, and get the second-calendar-invite test to net-new registrants live before W162 on Oct 20.</li><li><strong>Books came back once the webinar was on WebinarGeek again.</strong> 13 people booked, which is a 10.8% Book % against the people who stayed ten minutes. The two Zoom weeks ran at 6.1% and 5.2%, and W161 is back inside the 8.3% to 15.2% range of the earlier WebinarGeek weeks. This supports the Sep 30 finding that the Zoom tape never told people where to book, so any new webinar tool must carry a clear booking call-to-action before it goes live. Books usually keep rising for a few days, so this number will move.</li><li><strong>More invites bought fewer regs.</strong> This week had the most invites in the set, but regs fell to 2,277. That makes the reg rate 0.86%, the lowest of all ten weeks shown here. It fits the worry that the team leans too hard on one big audience list, so the invite copy test and the recycled-leads batch matter more this week.</li><li><strong>Nonjoiners are still more than half the list.</strong> 1,271 of the 2,277 regs were people re-invited after missing an earlier webinar, which is about 56% and the third week in a row above half. Only 1,006 regs were net-new, the lowest net-new count in this set. Adding fresh and recycled leads is the way to lift the net-new share.</li><li><strong>Fewer of the people who joined stayed.</strong> About 69% of the live room stayed ten minutes or more, down from about 80% in W160. That is still a decent hold, but watch it next week so a smaller room does not also start leaving earlier.</li></ol>
+      </div>
+    </section>
+  <div class="foot">Archive copy. Permanent home: https://lloyd-yip.github.io/webinar-studio-cards/#w161</div>
+</body>
+</html>
