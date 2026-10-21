@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>QS Webinar Studio · Default Funnel</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 28px;
+    background: #0f0f0f; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    max-width: 1100px; width: 100%; margin: 0 auto;
+  }
+  .eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h1 { margin: 0 0 6px; font-size: 26px; font-weight: 650; color: #fff; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 16px; }
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+    position: sticky; top: 0; z-index: 5; padding: 10px 0 12px; background: #0f0f0f;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .tab {
+    background: #141414; border: 1px solid #2a2a2a; color: #ccc;
+    border-radius: 999px; padding: 8px 14px; cursor: pointer; font-size: 13px; font-weight: 600;
+  }
+  .tab span { display: block; font-size: 11px; color: #888; font-weight: 500; margin-top: 2px; }
+  .tab.active { background: #1f2937; border-color: #6ee7b7; color: #fff; }
+  .tab.active span { color: #6ee7b7; }
+  .panel.hidden { display: none; }
+  .card {
+    background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #6ee7b7; margin-bottom: 10px; font-weight: 600;
+  }
+  .summary { font-size: 15px; line-height: 1.55; color: #e8e8e8; }
+  .summary strong { color: #fff; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+  .kpis-5 { grid-template-columns: repeat(5, 1fr); }
+  .kpi { background: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 14px 12px; }
+  .kpi .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi .val { font-size: 22px; font-weight: 700; margin-top: 6px; color: #fff; }
+  .kpi .sub { font-size: 12px; color: #888; margin-top: 4px; }
+  .kpi.warn { border-color: #fbbf2466; } .kpi.warn .val { color: #fbbf24; }
+  .kpi.bad, .kpi.red { border-color: #f8717166; } .kpi.bad .val, .kpi.red .val { color: #f87171; }
+  .kpi.good, .kpi.green { border-color: #4ade8066; } .kpi.good .val, .kpi.green .val { color: #4ade80; }
+  .kpi.yellow { border-color: #fbbf2466; } .kpi.yellow .val { color: #fbbf24; }
+  .kpi.accent .val { color: #6ee7b7; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th { text-align: left; color: #888; font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 6px; border-bottom: 1px solid #2a2a2a; }
+  td { padding: 10px 6px; border-bottom: 1px solid #222; color: #e8e8e8; }
+  tr:last-child td { border-bottom: none; }
+  tr.current td { background: #1f2937aa; }
+  tr.current td:first-child { border-left: 3px solid #6ee7b7; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 650; }
+  .badge.red { background: #f8717122; color: #f87171; }
+  .badge.yellow { background: #fbbf2422; color: #fbbf24; }
+  .badge.green { background: #4ade8022; color: #4ade80; }
+  ol.impl { margin: 0; padding-left: 18px; }
+  ol.impl li { margin: 0 0 10px; line-height: 1.5; color: #ddd; }
+  ol.impl li strong { color: #fff; }
+  .foot { color: #666; font-size: 11px; margin-top: 8px; }
+  @media (max-width: 900px) {
+    .kpis-5 { grid-template-columns: repeat(2, 1fr); }
+    table { display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+  <div class="eyebrow">Webinar Studio · Default Funnel</div>
+  <h1>W162 · Tuesday Oct 20, 2026</h1>
+  <div class="meta">Live webinar-studio · as-of Wed Oct 21 ~9:30am ET · GHL sync OK · deep sync webinar:162:deep done Wed Oct 21 8:57am ET · W162 published on Wed catch-up (data not ready Tue; WebinarJam sync failing until Wed 8:41am ET) · W162 = Demio + WebinarJam combined in one tab · regs split from Studio scorecard (nonjoiners vs net-new; W162 Demio half only) · ledger invites · Live/T10 exclude flagged notetakers on Zoom weeks · newest tab first · W158–W161 variant_label=Default</div>
+  <section class="panel" id="w162">
+      <div class="card">
+        <div class="card-title">Summary</div>
+        <div class="summary">W162 ran on two tools at once, with <strong>134,756</strong> invites going to Demio and <strong>129,461</strong> to WebinarJam, for <strong>264,217</strong> total. Together they drew <strong>2,489</strong> regs and <strong>254</strong> people live, so show was <strong>10.2%</strong>, which is still red but the best week since W158. The two halves looked nothing alike: WebinarJam showed <strong>22.8%</strong> of its 535 regs, while Demio showed only <strong>6.8%</strong> of its 1,954 regs. Books are the weak spot, because only <strong>9</strong> people have booked so far, which is a 4.9% Book % against the people who stayed ten minutes.</div>
+      </div>
+      <div class="kpis kpis-5">
+        <div class="kpi accent"><div class="label">Invites</div><div class="val">264,217</div><div class="sub">ledger · not ×5 · both tools</div></div>
+        <div class="kpi accent"><div class="label">Net-new regs</div><div class="val">633</div><div class="sub">Demio only · 2,489 overall</div></div>
+        <div class="kpi warn"><div class="label">Nonjoiner regs</div><div class="val">1,321</div><div class="sub">Demio only · 68% of Demio regs</div></div>
+        <div class="kpi red"><div class="label">Show rate</div><div class="val">10.2%</div><div class="sub">254 live · floor 12%</div></div>
+        <div class="kpi accent"><div class="label">Booked (people)</div><div class="val">9</div><div class="sub">Book B 8 · won 0</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel table · last 4 weeks (ending W162)</div>
+        <table>
+          <thead><tr>
+            <th>Webinar</th><th>Date</th>
+            <th class="num">Invites</th><th class="num">Regs</th>
+            <th class="num">Net-new</th><th class="num">Nonjoiners</th>
+            <th class="num">Live</th><th class="num">T10</th>
+            <th class="num">Book</th><th class="num">Book %</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+          </tr></thead>
+          <tbody>
+        <tr>
+          <td>W159</td><td>Sep 29</td>
+          <td class="num">244,325</td>
+          <td class="num">2,741</td>
+          <td class="num">1,164</td>
+          <td class="num">1,577</td>
+          <td class="num">269</td><td class="num">196</td>
+          <td class="num">12</td><td class="num">6.1%</td><td class="num">1</td>
+          <td class="num"><span class="badge red">9.8%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr>
+          <td>W160</td><td>Oct 6</td>
+          <td class="num">251,399</td>
+          <td class="num">2,640</td>
+          <td class="num">1,178</td>
+          <td class="num">1,462</td>
+          <td class="num">168</td><td class="num">135</td>
+          <td class="num">7</td><td class="num">5.2%</td><td class="num">0</td>
+          <td class="num"><span class="badge red">6.4%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr>
+          <td>W161</td><td>Oct 13</td>
+          <td class="num">264,745</td>
+          <td class="num">2,277</td>
+          <td class="num">1,006</td>
+          <td class="num">1,271</td>
+          <td class="num">174</td><td class="num">120</td>
+          <td class="num">13</td><td class="num">10.8%</td><td class="num">0</td>
+          <td class="num"><span class="badge red">7.6%</span></td>
+          <td class="num">0.9%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W162</strong></td><td>Oct 20</td>
+          <td class="num"><strong>264,217</strong></td>
+          <td class="num"><strong>2,489</strong></td>
+          <td class="num"><strong>633†</strong></td>
+          <td class="num"><strong>1,321†</strong></td>
+          <td class="num"><strong>254</strong></td><td class="num"><strong>182</strong></td>
+          <td class="num"><strong>9</strong></td><td class="num">4.9%</td><td class="num"><strong>0</strong></td>
+          <td class="num"><span class="badge red">10.2%</span></td>
+          <td class="num"><strong>0.9%</strong></td>
+        </tr></tbody>
+        </table>
+        <div class="foot">Regs split from Studio webinar_report scorecard: Nonjoiners = prior no-shows re-invited; Net-new = everything else (assigned lists + no-list data). Book = distinct contacts on booked_call_webinar_series. Book % = Book ÷ T10 (people who stayed 10+ min). Live and T10 exclude flagged AI notetakers on Zoom weeks (W158 22, W159 23, W160 17). † W162 ran on Demio + WebinarJam; regs, live, T10 and books are both tools combined, but the net-new / nonjoiner split is the Demio half only (WebinarJam scorecard not built yet). Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Implications</div>
+        <ol class="impl"><li><strong>WebinarJam won the room, but Demio won the sign-ups.</strong> WebinarJam showed 22.8% of its regs, more than three times Demio at 6.8%. But WebinarJam only turned 0.41% of its invites into regs, while Demio turned 1.45% into regs. So the two halves ended with almost the same live room, 122 on WebinarJam and 132 on Demio, from about the same number of invites. Before anyone calls a winner, check whether the WebinarJam sign-up step is losing people or whether some of its regs never reached Studio. That matters right now, because next week runs on one tool while Lloyd is away.</li><li><strong>Book % fell by more than half.</strong> Only 9 people booked, which is a 4.9% Book % against the 182 people who stayed ten minutes. W161 was at 10.8% on WebinarGeek. Neither new tool did well here: Demio is at about 4.6% (4 people) and WebinarJam at about 3.2% (3 people), and 2 bookers did not match either list. This looks like the Sep 30 Zoom lesson again, so confirm both tapes and chats tell people exactly where to book. Books keep rising for a few days, so this number will move.</li><li><strong>WebinarJam held people better once they joined.</strong> About 78% of the WebinarJam live room stayed ten minutes or more, compared with about 66% on Demio. So the WebinarJam room was not just bigger as a share of regs, it also kept people longer. That is a real point in its favor if the sign-up gap turns out to be fixable.</li><li><strong>The Demio half leaned hard on nonjoiners.</strong> 1,321 of Demio’s 1,954 regs were people re-invited after missing an earlier webinar, which is about 68% and the highest share in this set. Only 633 Demio regs were net-new. The WebinarJam split is not built in Studio yet, so the full-week mix is still unknown, and the Studio report for WebinarJam needs to be generated before next week’s review.</li><li><strong>The WebinarJam data landed late.</strong> WebinarJam sync kept failing on Tuesday because of a country-field bug, and it only finished on Wednesday at about 8:41am ET. The fix worked, but it is why this card is a day late. Keep an eye on the sync next week so the Tuesday card can go out on time.</li></ol>
+      </div>
+    </section>
+  <div class="foot">Archive copy. Permanent home: https://lloyd-yip.github.io/webinar-studio-cards/#w162</div>
+</body>
+</html>
