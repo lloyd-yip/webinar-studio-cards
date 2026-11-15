@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>October 2026 · Monthly lead quality · Webinar Studio</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 36px 40px 48px;
+    background: #0f0f0f; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    max-width: 920px;
+  }
+  .wrap { max-width: 860px; }
+  .eyebrow {
+    font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: #9ca3af; margin-bottom: 10px; font-weight: 600;
+  }
+  h1 { margin: 0 0 8px; font-size: 34px; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+  .meta { color: #9ca3af; font-size: 16px; margin-bottom: 24px; line-height: 1.4; }
+  .card {
+    background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 16px;
+    padding: 22px 24px; margin-bottom: 18px;
+  }
+  .card-title {
+    font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: #6ee7b7; margin-bottom: 14px; font-weight: 700;
+  }
+  .summary { font-size: 18px; line-height: 1.6; color: #e5e7eb; }
+  .summary strong { color: #fff; font-weight: 700; }
+  .kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-bottom: 18px;
+  }
+  .kpi {
+    background: #141414; border: 1px solid #2a2a2a; border-radius: 14px;
+    padding: 18px 16px;
+  }
+  .kpi .label { font-size: 13px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .kpi .val { font-size: 36px; font-weight: 750; margin-top: 8px; color: #fff; line-height: 1.1; }
+  .kpi .sub { font-size: 14px; color: #9ca3af; margin-top: 8px; line-height: 1.35; }
+  .kpi.warn { border-color: #fbbf2466; }
+  .kpi.warn .val { color: #fbbf24; }
+  .kpi.bad { border-color: #f8717166; }
+  .kpi.bad .val { color: #f87171; }
+  .kpi.good { border-color: #4ade8066; }
+  .kpi.good .val { color: #4ade80; }
+  .kpi.accent .val { color: #6ee7b7; }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  th {
+    text-align: left; color: #9ca3af; font-weight: 700; font-size: 13px;
+    text-transform: uppercase; letter-spacing: 0.07em;
+    padding: 12px 10px; border-bottom: 1px solid #333;
+  }
+  td { padding: 14px 10px; border-bottom: 1px solid #262626; color: #e5e7eb; }
+  tr:last-child td { border-bottom: none; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 600; }
+  .badge {
+    display: inline-block; padding: 4px 10px; border-radius: 999px;
+    font-size: 14px; font-weight: 700;
+  }
+  .badge.red { background: #f8717122; color: #f87171; }
+  .badge.yellow { background: #fbbf2422; color: #fbbf24; }
+  .badge.green { background: #4ade8022; color: #4ade80; }
+  .mix { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+  .mix .cell {
+    background: #141414; border: 1px solid #2a2a2a; border-radius: 12px;
+    padding: 16px 10px; text-align: center;
+  }
+  .mix .cell .n { font-size: 28px; font-weight: 750; color: #fff; }
+  .mix .cell .l { font-size: 13px; color: #9ca3af; margin-top: 6px; font-weight: 600; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  ol.impl { margin: 0; padding-left: 22px; }
+  ol.impl li { margin: 0 0 14px; line-height: 1.55; color: #e5e7eb; font-size: 16px; }
+  ol.impl li strong { color: #fff; }
+  .foot { color: #6b7280; font-size: 13px; margin-top: 14px; line-height: 1.45; }
+  ul.plain { margin: 0; padding-left: 20px; color: #e5e7eb; font-size: 16px; line-height: 1.65; }
+  ul.plain strong { color: #fff; }
+  @media (max-width: 720px) {
+    body { padding: 22px 16px 36px; }
+    .kpis { grid-template-columns: repeat(2, 1fr); }
+    .mix { grid-template-columns: repeat(3, 1fr); }
+    .two-col { grid-template-columns: 1fr; }
+    table { font-size: 14px; }
+    th, td { padding: 10px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Webinar Studio · Monthly lead quality</div>
+  <h1>October 2026 · W160–W163</h1>
+  <div class="meta">Live webinar-studio · as-of Nov 15 ~8:55am ET · GHL sync OK (opportunities Nov 15 7:11am ET; incremental Nov 14 7:00pm ET; full Nov 11 5:20am ET; 0 errors) · no Default Funnel exact weeks — October production set shown (W160 Zoom “Default”; W161 WebinarGeek “Default”; W162–W163 Demio + WebinarJam)</div>
+
+  <div class="card">
+    <div class="card-title">Summary</div>
+    <div class="summary">
+      October’s four production webinars (W160–W163) booked <strong>54 people</strong>, and <strong>33</strong> of them showed to Call 1, a show rate of <strong>61%</strong>. <strong>27</strong> scored as qualified (Great / Ok / Barely Passable), which is <strong>82%</strong> of showed calls and <strong>93%</strong> of the 29 showed calls that already have a Lead Quality score. Only <strong>1</strong> deal has won so far (<strong>2%</strong> of booked people), and that number should still grow, because the last two weeks are only two to three weeks old. Quality held; volume did not. Bookings averaged about 14 per webinar, down from about 19 in September’s Default Funnel weeks and 34 in August, and none of these four weeks is labeled “Default Funnel” in Studio, so this card reports the actual October production set rather than an empty exact-label cut.
+    </div>
+  </div>
+
+  <div class="kpis">
+    <div class="kpi accent">
+      <div class="label">Booked (people)</div>
+      <div class="val">54</div>
+      <div class="sub">Book A · Book B 56 opp rows / 56 people (W160 A 8 vs B 10, W161 A 14 vs B 16, W163 A 21 vs B 19)</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Call 1 showed</div>
+      <div class="val">33</div>
+      <div class="sub">61% of booked</div>
+    </div>
+    <div class="kpi good">
+      <div class="label">Qualified</div>
+      <div class="val">27</div>
+      <div class="sub">82% of showed · 93% of scored · 4 LQ null</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Won</div>
+      <div class="val">1</div>
+      <div class="sub">2% of booked · still maturing</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Per webinar · book → showed → qualified → won</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Webinar</th>
+          <th>Date</th>
+          <th class="num">Book</th>
+          <th class="num">Showed</th>
+          <th class="num">Qualified</th>
+          <th class="num">Won</th>
+          <th class="num">Show/Book</th>
+          <th class="num">Qual/Show</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>W160</td><td>Oct 6</td>
+          <td class="num">8</td><td class="num">7</td><td class="num">5</td><td class="num">0</td>
+          <td class="num"><span class="badge green">88%</span></td>
+          <td class="num"><span class="badge green">71%</span></td>
+        </tr>
+        <tr>
+          <td>W161</td><td>Oct 13</td>
+          <td class="num">14</td><td class="num">11</td><td class="num">10</td><td class="num">1</td>
+          <td class="num"><span class="badge green">79%</span></td>
+          <td class="num"><span class="badge green">91%</span></td>
+        </tr>
+        <tr>
+          <td>W162</td><td>Oct 20</td>
+          <td class="num">11</td><td class="num">5</td><td class="num">5</td><td class="num">0</td>
+          <td class="num"><span class="badge red">45%</span></td>
+          <td class="num"><span class="badge green">100%</span></td>
+        </tr>
+        <tr>
+          <td>W163</td><td>Oct 27</td>
+          <td class="num">21</td><td class="num">10</td><td class="num">7</td><td class="num">0</td>
+          <td class="num"><span class="badge red">48%</span></td>
+          <td class="num"><span class="badge green">70%</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="foot">Book = distinct contacts on booked_call_webinar_series (Book A). Showed = Call 1 status Showed OR showed-stage union, on opportunities with webinar_source_number = W (Dup excluded). Qualified = Call 1 Lead Quality in Great / Ok / Barely Passable. W162 and W163 are counted once at the webinar number, combining Demio and WebinarJam. None of W160–W163 is labeled “Default Funnel” exact: W160 is Zoom “Default,” W161 is WebinarGeek “Default,” and W162–W163 are Demio + WebinarJam. The exact-label rule would have left this month empty, so the production set is shown instead.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Lead quality mix · among 33 Call 1 showed</div>
+    <div class="mix">
+      <div class="cell"><div class="n">8</div><div class="l">Great</div></div>
+      <div class="cell"><div class="n">16</div><div class="l">Ok</div></div>
+      <div class="cell"><div class="n">3</div><div class="l">Barely</div></div>
+      <div class="cell"><div class="n">2</div><div class="l">Bad / DQ</div></div>
+      <div class="cell"><div class="n">4</div><div class="l">(null)</div></div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Where qualified came from</div>
+      <ul class="plain">
+        <li><strong>Reg campaign:</strong> blank 14 · email 12 · website 1. Email-registered showed calls qualified 12 of 12 scored (100%).</li>
+        <li><strong>Book campaign:</strong> webinar 24 · fb 2 · website 1. Webinar-booked showed calls qualified 24 of 26 scored (92%).</li>
+        <li><strong>Geo (registrant join):</strong> US 8 · Germany 1 · Netherlands 1 · blank 17</li>
+        <li><strong>Company size (partial):</strong> 1–10 employees 6 · 11–50 1 · blank 20</li>
+      </ul>
+      <div class="foot">Geo via webinar_registrants viewing/country matched on email + broadcast. The join filled only 11 of 33 showed calls (0 of 7 on Zoom W160, 7 of 11 on WebinarGeek W161, 1 of 5 on W162, 3 of 10 on W163), so most blanks are a platform join gap, not proven “unknown geography.” Company size from contacts.employee_count, filled for 11 of 33 showed calls and 19 of 54 booked people. Clean titles are not bucketed in Studio for this cut.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">Decision implications</div>
+      <ol class="impl">
+        <li><strong>Get a ruling on the monthly cut, or October will keep falling out.</strong> None of these four weeks is labeled “Default Funnel.” W160 ran on Zoom as “Default,” W161 ran on WebinarGeek as “Default,” and W162–W163 ran on Demio plus WebinarJam. The September card already flagged this, and the exact-label rule would have left this month at zero. Keep these production-set numbers, and have Lloyd or CoS either relabel the weeks or rewrite the rule before November’s card. <strong>solid</strong></li>
+        <li><strong>Volume is the problem, not quality.</strong> Bookings fell to about 14 per webinar from 19 in September and 34 in August, while qualify-of-scored stayed at 93%. Show-of-book also slipped from 71% to 61%, because only 45% and 48% of W162 and W163 bookers showed to Call 1. The work belongs at bookings and late-month show-up, not in how closers are scoring the people who arrive. <strong>solid</strong></li>
+        <li><strong>W161 on WebinarGeek was the week that still worked.</strong> It booked 14 people, showed 11 (79%), qualified 10, produced 5 of the month’s 8 Great scores, and landed the only win. That is the October week that looks like the older WebinarGeek run, and it is another point in favor of a clear booking CTA when the webinar is not on Zoom. <strong>solid</strong></li>
+        <li><strong>The dual-tool weeks leaked after the book.</strong> W162 showed 5 of 11 bookers and W163 showed 10 of 21, even though everyone who showed on W162 qualified. Chase those no-shows and check whether running Demio and WebinarJam in the same week is making the calendar or the attribution messy. <strong>solid</strong></li>
+        <li><strong>Keep the webinar booking path; do not assume email is still the volume spine.</strong> 24 of the 27 qualified leads booked through the webinar link, and those showed calls qualified 24 of 26 scored (92%). Email-registered showed calls still qualified 12 of 12 scored, but 19 of 33 showed calls have a blank registration source, so email is no longer the visible volume engine it was in September. <strong>solid</strong></li>
+        <li><strong>Do not steer on geography, company size, or titles.</strong> The registrant geo join matched only 11 of 33 showed calls (none of the 7 Zoom W160 shows, and few of the Demio/WebinarJam shows), company size is filled for only 11 of 33 showed calls and 19 of 54 booked people, and titles are not cleanly bucketed. Any size or title conclusion would be guesswork. <strong>thin n / estimate</strong></li>
+      </ol>
+    </div>
+  </div>
+</div>
+</body>
+</html>
