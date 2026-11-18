@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>QS Webinar Studio · Default Funnel</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 28px;
+    background: #0f0f0f; color: #e8e8e8;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+    max-width: 1100px; width: 100%; margin: 0 auto;
+  }
+  .eyebrow { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 8px; }
+  h1 { margin: 0 0 6px; font-size: 26px; font-weight: 650; color: #fff; }
+  .meta { color: #888; font-size: 13px; margin-bottom: 16px; }
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px;
+    position: sticky; top: 0; z-index: 5; padding: 10px 0 12px; background: #0f0f0f;
+    border-bottom: 1px solid #2a2a2a;
+  }
+  .tab {
+    background: #141414; border: 1px solid #2a2a2a; color: #ccc;
+    border-radius: 999px; padding: 8px 14px; cursor: pointer; font-size: 13px; font-weight: 600;
+  }
+  .tab span { display: block; font-size: 11px; color: #888; font-weight: 500; margin-top: 2px; }
+  .tab.active { background: #1f2937; border-color: #6ee7b7; color: #fff; }
+  .tab.active span { color: #6ee7b7; }
+  .panel.hidden { display: none; }
+  .card {
+    background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 14px;
+    padding: 18px 20px; margin-bottom: 16px;
+  }
+  .card-title {
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #6ee7b7; margin-bottom: 10px; font-weight: 600;
+  }
+  .summary { font-size: 15px; line-height: 1.55; color: #e8e8e8; }
+  .summary strong { color: #fff; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 16px; }
+  .kpis-5 { grid-template-columns: repeat(5, 1fr); }
+  .kpi { background: #141414; border: 1px solid #2a2a2a; border-radius: 12px; padding: 14px 12px; }
+  .kpi .label { font-size: 11px; color: #888; text-transform: uppercase; letter-spacing: 0.06em; }
+  .kpi .val { font-size: 22px; font-weight: 700; margin-top: 6px; color: #fff; }
+  .kpi .sub { font-size: 12px; color: #888; margin-top: 4px; }
+  .kpi.warn { border-color: #fbbf2466; } .kpi.warn .val { color: #fbbf24; }
+  .kpi.bad, .kpi.red { border-color: #f8717166; } .kpi.bad .val, .kpi.red .val { color: #f87171; }
+  .kpi.good, .kpi.green { border-color: #4ade8066; } .kpi.good .val, .kpi.green .val { color: #4ade80; }
+  .kpi.yellow { border-color: #fbbf2466; } .kpi.yellow .val { color: #fbbf24; }
+  .kpi.accent .val { color: #6ee7b7; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th { text-align: left; color: #888; font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; padding: 10px 6px; border-bottom: 1px solid #2a2a2a; }
+  td { padding: 10px 6px; border-bottom: 1px solid #222; color: #e8e8e8; }
+  tr:last-child td { border-bottom: none; }
+  tr.current td { background: #1f2937aa; }
+  tr.current td:first-child { border-left: 3px solid #6ee7b7; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 650; }
+  .badge.red { background: #f8717122; color: #f87171; }
+  .badge.yellow { background: #fbbf2422; color: #fbbf24; }
+  .badge.green { background: #4ade8022; color: #4ade80; }
+  ol.impl { margin: 0; padding-left: 18px; }
+  ol.impl li { margin: 0 0 10px; line-height: 1.5; color: #ddd; }
+  ol.impl li strong { color: #fff; }
+  .foot { color: #666; font-size: 11px; margin-top: 8px; }
+  @media (max-width: 900px) {
+    .kpis-5 { grid-template-columns: repeat(2, 1fr); }
+    table { display: block; overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+  <div class="eyebrow">Webinar Studio · Default Funnel</div>
+  <h1>W166 · Tuesday Nov 17, 2026</h1>
+  <div class="meta">Live webinar-studio · as-of Wed Nov 18 ~9:30am ET · GHL sync OK (opportunities 7:12am ET Nov 18, WJ broadcast sync 5:56am ET, narrow 5:55am ET; webinar:166:deep completed 5:55am ET with 0 contacts synced, books landed via narrow + opportunities; no errors) · ledger invites (not ×5) · W166 = WebinarJam only (third solo week) · W166 published on Wed catch-up (invite ledger + scorecard not ready Tue) · refreshed W158/W161/W163/W164 books and won from live GHL · newest tab first</div>
+  <section class="panel" id="w166">
+      <div class="card">
+        <div class="card-title">Summary</div>
+        <div class="summary"><em>(catch-up — primary wake missed or data not ready Tue)</em> W166 was the third <strong>WebinarJam-only</strong> week, and show recovered to <strong>14.6%</strong> on <strong>2,478</strong> regs — green, after 4.9% in W165 and 9.2% in W164. Invites landed at <strong>238,474</strong> (up from 207,783), live was <strong>363</strong> (up from 128), and the room was <strong>1,301</strong> net-new versus <strong>1,177</strong> nonjoiners, so re-invites fell to 47.5% of regs from 56%. Books so far are <strong>21</strong> people (Book B 19), a <strong>7.4%</strong> Book % against the 283 who stayed ten minutes, with won still <strong>0</strong> for W166 while earlier weeks W161, W163 and W164 each picked up a win in the refresh.</div>
+      </div>
+      <div class="kpis kpis-5">
+        <div class="kpi accent"><div class="label">Invites</div><div class="val">238,474</div><div class="sub">ledger · not ×5 · WebinarJam only</div></div>
+        <div class="kpi accent"><div class="label">Net-new regs</div><div class="val">1,301</div><div class="sub">incl. no-list · 2,478 overall</div></div>
+        <div class="kpi warn"><div class="label">Nonjoiner regs</div><div class="val">1,177</div><div class="sub">47% of regs</div></div>
+        <div class="kpi green"><div class="label">Show rate</div><div class="val">14.6%</div><div class="sub">363 live · floor 12%</div></div>
+        <div class="kpi accent"><div class="label">Booked (people)</div><div class="val">21</div><div class="sub">Book B 19 · won 0</div></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Funnel table · last 4 weeks (ending W166)</div>
+        <table>
+          <thead><tr>
+            <th>Webinar</th><th>Date</th>
+            <th class="num">Invites</th><th class="num">Regs</th>
+            <th class="num">Net-new</th><th class="num">Nonjoiners</th>
+            <th class="num">Live</th><th class="num">T10</th>
+            <th class="num">Book</th><th class="num">Book %</th><th class="num">Won</th><th class="num">Show %</th><th class="num">Reg %</th>
+          </tr></thead>
+          <tbody>
+        <tr>
+          <td>W163</td><td>Oct 27</td>
+          <td class="num">266,535</td>
+          <td class="num">2,900</td>
+          <td class="num">946†</td>
+          <td class="num">1,373†</td>
+          <td class="num">289</td><td class="num">208</td>
+          <td class="num">21</td><td class="num">10.1%</td><td class="num">1</td>
+          <td class="num"><span class="badge red">10.0%</span></td>
+          <td class="num">1.1%</td>
+        </tr>
+        <tr>
+          <td>W164</td><td>Nov 5</td>
+          <td class="num">262,237</td>
+          <td class="num">3,067</td>
+          <td class="num">1,550</td>
+          <td class="num">1,517</td>
+          <td class="num">283</td><td class="num">194</td>
+          <td class="num">16</td><td class="num">8.2%</td><td class="num">1</td>
+          <td class="num"><span class="badge red">9.2%</span></td>
+          <td class="num">1.2%</td>
+        </tr>
+        <tr>
+          <td>W165</td><td>Nov 10</td>
+          <td class="num">207,783</td>
+          <td class="num">2,630</td>
+          <td class="num">1,149</td>
+          <td class="num">1,481</td>
+          <td class="num">128</td><td class="num">84</td>
+          <td class="num">2</td><td class="num">2.4%</td><td class="num">0</td>
+          <td class="num"><span class="badge red">4.9%</span></td>
+          <td class="num">1.3%</td>
+        </tr>
+        <tr class="current">
+          <td><strong>W166</strong></td><td>Nov 17</td>
+          <td class="num"><strong>238,474</strong></td>
+          <td class="num"><strong>2,478</strong></td>
+          <td class="num"><strong>1,301</strong></td>
+          <td class="num"><strong>1,177</strong></td>
+          <td class="num"><strong>363</strong></td><td class="num"><strong>283</strong></td>
+          <td class="num"><strong>21</strong></td><td class="num">7.4%</td><td class="num"><strong>0</strong></td>
+          <td class="num"><span class="badge green">14.6%</span></td>
+          <td class="num"><strong>1.0%</strong></td>
+        </tr></tbody>
+        </table>
+        <div class="foot">Regs split from Studio webinar_report scorecard: Nonjoiners = prior no-shows re-invited; Net-new = everything else (assigned lists + no-list data). Book = distinct contacts on booked_call_webinar_series. Book % = Book ÷ T10 (people who stayed 10+ min). Live and T10 exclude flagged AI notetakers on Zoom weeks (W158 22, W159 23, W160 17). † W162 and W163 ran on Demio + WebinarJam; regs, live, T10 and books are both tools combined, but the net-new / nonjoiner split is the Demio half only (WebinarJam scorecard not built). W164, W165 and W166 are WebinarJam only (full scorecard). Show badges: green ≥12%, yellow 11–12%, red &lt;11%.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Implications</div>
+        <ol class="impl"><li><strong>Show recovered to green on the third solo WebinarJam week.</strong> W166 showed 14.6% of 2,478 regs with 363 live, above the 12% floor and up from 4.9% (128 live) in W165 and 9.2% in W164. Recovery came with a larger invite file (238,474 vs 207,783) and a smaller share of re-invites, so the room looks healthy again. Hold the Tuesday cadence and reminder flow that ran this week and check whether anything differed from W165 before changing it.</li><li><strong>The mix shifted back toward net-new.</strong> 1,301 of 2,478 regs were net-new (incl. no-list data) versus 1,177 nonjoiners (47.5% of regs), down from 56% in W165. Studio’s scorecard puts the attend rate of assigned-list net-new regs at 17.7%, versus 14.6% across all regs, so fresh names are pulling show up. A nonjoiner-only attend rate is not in this scorecard, so do not quote one. Keep feeding fresh and recycled net-new so re-invites stay below half.</li><li><strong>Registration held on a bigger send.</strong> 238,474 ledger invites produced 2,478 regs, a 1.0% reg rate, below W165’s 1.3% and W164’s 1.2%. More invites bought slightly fewer regs, so the extra volume did not add sign-ups; the gain this week came from who showed, not who registered. Compare the W166 send lists with W165’s before scaling invites further.</li><li><strong>Books bounced back from last week’s trough.</strong> 21 people booked so far (Book B 19 pipeline rows), a 7.4% Book % against 283 T10, versus 2 people and 2.4% for W165 and 16 / 8.2% for W164. Books usually keep rising for a few days, so this will move. Confirm booking-link follow-up goes to the 283 who stayed ten minutes and watch whether W166 closes the gap to W163’s 10.1%.</li><li><strong>This card landed on Wednesday catch-up, and won is still 0.</strong> Tuesday’s 4:28pm ET primary and 5:22pm ET recheck found W166 not ready (no invite ledger, no scorecard, no deep sync); the ledger and scorecard cleared Wednesday morning. Note webinar:166:deep completed with 0 contacts and 0 opportunities synced, unlike W165’s deep run, though books landed through the narrow and opportunities syncs. W166 won is 0, while W161, W163 and W164 each gained one in this refresh, so re-check W166 wins later this week.</li></ol>
+      </div>
+    </section>
+  <div class="foot">Archive copy. Permanent home: https://lloyd-yip.github.io/webinar-studio-cards/#w166</div>
+</body>
+</html>
